@@ -46,6 +46,16 @@ public class BSTTester
             }
         }
 
+        // Tests for the added methods
+        boolean isComplete = t.isComplete();
+        System.out.println("Is this a complete tree? " + isComplete);
+
+        boolean isPerfect = t.isPerfect();
+        System.out.println("Is this a perfect tree? " + isPerfect);
+
+        boolean hasDoubles = t.hasDoubles();
+        System.out.println("Does the tree have duplicate values? " + hasDoubles);
+
 
         int size = t.size();
         t.reset(BST.INORDER);
