@@ -26,9 +26,15 @@ public class TreeRandomizer {
                 }
                 totalHeight += bst.height();
                 
-                if (bst.isComplete()) completeCounter++;
-                if (bst.isPerfect()) perfectCounter++;
-                if (bst.hasDoubles()) doublesCounter++;
+                if (bst.isComplete()) {
+                	completeCounter++;
+                }
+                if (bst.isPerfect()) {
+                	perfectCounter++;
+                }
+                if (bst.hasDoubles()) {
+                	doublesCounter++;
+                }
             }
 
             averageHeight = (double) totalHeight / 100;
