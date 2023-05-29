@@ -12,11 +12,14 @@ public class Node<T extends Comparable> {
     private T value;
     private Node<T> left, right, parent;
     private boolean color;
+    private boolean visited; // New field for tracking visited status
+
 
     public Node() {
         left = null;
         right = null;
         parent = null;
+        visited = false; // Initialize visited status as false
     }
 
     public T getValue() {
@@ -58,6 +61,16 @@ public class Node<T extends Comparable> {
     public void setColor(boolean color) {
         this.color = color;
     }
+
+
+    public boolean isVisited() {
+        return visited;
+    }
+
+    public void setVisited(boolean visited) {
+        this.visited = visited;
+    }
+
 
     public String getRBTValue() { // for use with TreePrinter
 
