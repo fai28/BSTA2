@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * Implementation of a BST using linking
@@ -185,25 +187,29 @@ public class BST<T extends Comparable> implements BSTInterface<T> {
         }
     }
 
+    T predecessor(Node<T> root)
+    {
+        while (root.getRight() != null) root = root.getRight();
+        return root.getValue();
+    }
+
+
+    // NEW METHODS FROM HERE
+
 
     /**
      * Precondition: None
      * Postcondition: Returns the height of the tree
      */
     public int height() {
-        // TODO: Add implementation here
-        // Steps:
-        // 1. Call a recursive helper method to calculate the height of the tree
-        // 2. The height of a tree is the maximum height between the left and right subtrees of each node
-        // 3. The height of an empty tree is 0
-        // 4. Return the calculated height
         return recursiveHeight(root);
     }
 
     private int recursiveHeight(Node<T> root) {
-        // TODO: Implement the recursive helper method to calculate the height of the tree
-        // ...
-        return 0;
+        if (root == null) return 0;
+        int leftHeight = recursiveHeight(root.getLeft());
+        int rightHeight = recursiveHeight(root.getRight());
+        return Math.max(leftHeight, rightHeight) + 1;
     }
 
     /**
@@ -211,45 +217,24 @@ public class BST<T extends Comparable> implements BSTInterface<T> {
      * Postcondition: Returns a reference to the parent of a node containing the given value
      */
     public Node<T> parent(T value) {
-        // TODO: Add implementation here
-        // Steps:
-        // 1. Call a recursive helper method to find the parent of the node containing the given value
-        // 2. If the node is found, return its parent node
-        // 3. If the node is not found or it is the root node (which has no parent), return null
         return recursiveParent(value, root);
     }
 
     private Node<T> recursiveParent(T value, Node<T> root) {
-        // TODO: Implement the recursive helper method to find the parent of the node containing the given value
-        // ...
-        return root;
-    }
-
-    /**
-     * Precondition: None
-     * Postcondition: Returns the level of the node containing the given value
-     * If there are multiple nodes with the same value, it returns the highest level
-     */
-    public int level(T value) {
-        // TODO: Add implementation here
-        // Steps:
-        // 1. Call a recursive helper method to find the level of the node containing the given value
-        // 2. Keep track of the current level while traversing the tree
-        // 3. If the node is found, update the level if it is higher than the previous highest level
-        // 4. Return the highest level found
-        return recursiveLevel(value, root, 0);
-    }
-
-    private int recursiveLevel(T value, Node<T> root, int level) {
-        // TODO: Implement the recursive helper method to find the level of the node containing the given value
-        // ...
-        return level;
+        if (root == null) return null;
+        if ((root.getLeft() != null && root.getLeft().getValue().equals(value)) || (root.getRight() != null && root.getRight().getValue().equals(value)))
+            return root;
+        Node<T> leftParent = recursiveParent(value, root.getLeft());
+        if (leftParent != null) return leftParent;
+        Node<T> rightParent = recursiveParent(value, root.getRight());
+        if (rightParent != null) return rightParent;
+        return null;
     }
 
     private boolean recIsComplete(Node<T> root, int index) {
-        // TODO: Implement the recursive helper method to check if the tree is complete
-        // ...
-        return false;
+        if (root == null) return true;
+        if (index >= size()) return false;
+        return recIsComplete(root.getLeft(), 2 * index + 1) && recIsComplete(root.getRight(), 2 * index + 2);
     }
 
     /**
@@ -258,13 +243,6 @@ public class BST<T extends Comparable> implements BSTInterface<T> {
      * Must call a recursive method recIsComplete(root, index)
      */
     public boolean isComplete() {
-        // TODO: Add implementation here
-        // Steps:
-        // 1. Call a recursive helper method to check if the tree is complete
-        // 2. The helper method should take the current node and its index
-        // 3. The index represents the position of the current node in a complete binary tree
-        // 4. In a complete binary tree, the index of any node cannot be greater than or equal to the number of nodes n
-        // 5. If the tree is complete, return true; otherwise, return false
         return recIsComplete(root, 0);
     }
 
@@ -274,17 +252,16 @@ public class BST<T extends Comparable> implements BSTInterface<T> {
      * A perfect binary tree is a complete binary tree where all the leaf nodes are at the same level
      */
     public boolean isPerfect() {
-        // TODO: Add implementation here
-        // Steps:
-        // 1. Calculate the height of the tree using the height() method
-        // 2. Traverse the tree to check if all the leaf nodes are at the height level
-        // 3. If all leaf nodes are at the height level, return true; otherwise, return false
-        return recursiveIsPerfect(root, 0, height());
+        int height = height();
+        return recursiveIsPerfect(root, 0, height);
     }
 
     private boolean recursiveIsPerfect(Node<T> root, int level, int height) {
-        // TODO: Implement the recursive helper method to check if the tree is perfect
-        // ...
+        if (root == null) return true;
+        if (root.getLeft() == null && root.getRight() == null)
+            return level == height - 1;
+        if (root.getLeft() != null && root.getRight() != null)
+            return recursiveIsPerfect(root.getLeft(), level + 1, height) && recursiveIsPerfect(root.getRight(), level + 1, height);
         return false;
     }
 
@@ -295,31 +272,95 @@ public class BST<T extends Comparable> implements BSTInterface<T> {
      * Capitalizes on the "visited" field of the Node class
      */
     public boolean hasDoubles() {
-        // TODO: Add implementation here
-        // Steps:
-        // 1. Traverse the tree and mark the visited nodes by setting the "visited" field to true
-        // 2. If a node is visited again (i.e., its "visited" field is already true), return true
-        // 3. If no duplicates are found, return false
         return recursiveHasDoubles(root);
     }
 
     private boolean recursiveHasDoubles(Node<T> root) {
-        // TODO: Implement the recursive helper method to check if the tree has duplicate values
-        // ...
-        return false;
+        if (root == null) return false;
+        if (root.isVisited()) return true;
+        root.setVisited(true);
+        boolean leftHasDoubles = recursiveHasDoubles(root.getLeft());
+        boolean rightHasDoubles = recursiveHasDoubles(root.getRight());
+        return leftHasDoubles || rightHasDoubles;
     }
 
     /**
      * Precondition: None
-     * Postcondition: Returns true if the tree is complete
-     *                Must call a recursive method recIsComplete(root, index)
+     * Postcondition: Returns the level of the node containing the given value
      */
-
-    T predecessor(Node<T> root)
-    {
-        while (root.getRight() != null) root = root.getRight();
-        return root.getValue();
+    public int level(T value) {
+        return recursiveLevel(value, root, 0);
     }
+
+    private int recursiveLevel(T value, Node<T> root, int level) {
+        if (root == null)
+            return -1;
+        if (root.getValue().equals(value))
+            return level;
+        int leftLevel = recursiveLevel(value, root.getLeft(), level + 1);
+        int rightLevel = recursiveLevel(value, root.getRight(), level + 1);
+        return Math.max(leftLevel, rightLevel);
+    }
+
+    /**
+     * Precondition: None
+     * Postcondition: Prints the tree using /\ symbols and integers to represent the nodes
+     */
+    public void printLevels() {
+        int treeHeight = height();
+        if (treeHeight == 0) {
+            System.out.println("The tree is empty.");
+            return;
+        }
+
+        Queue<Node<T>> queue = new LinkedList<>();
+        queue.add(root);
+
+        int level = 0;
+        int levelNodes = 1;
+        int spaces = (int) Math.pow(2, treeHeight - level) - 1;
+
+        while (!queue.isEmpty()) {
+            int tempSpaces = spaces;
+            while (tempSpaces > 0) {
+                System.out.print(" ");
+                tempSpaces--;
+            }
+
+            int newSpaces = spaces * 2 + 1;
+
+            int nodesAtLevel = 0;
+            while (levelNodes > 0) {
+                Node<T> current = queue.poll();
+
+                if (current != null) {
+                    System.out.print(current.getValue());
+                    nodesAtLevel++;
+                    queue.add(current.getLeft());
+                    queue.add(current.getRight());
+                } else {
+                    System.out.print(" ");
+                    queue.add(null);
+                    queue.add(null);
+                }
+
+                tempSpaces = newSpaces;
+                while (tempSpaces > 0) {
+                    System.out.print(" ");
+                    tempSpaces--;
+                }
+
+                levelNodes--;
+            }
+
+            System.out.println();
+            spaces = (spaces - 1) / 2;
+
+            level++;
+            levelNodes = nodesAtLevel;
+        }
+    }
+
 
 
     /**
