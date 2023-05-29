@@ -351,15 +351,6 @@ public class BST<T extends Comparable> implements BSTInterface<T> {
         boolean rightHasDoubles = recursiveHasDoubles(root.getRight());
         return leftHasDoubles || rightHasDoubles;
     }
-    
-    /**
-     * Precondition: None
-     * Postcondition: Returns the level of the node containing the given value. If the value does not exist, returns -1.
-     */
-    public int level1(T value) {
-        return recursiveLevel(value, root, 0);
-    }
-
    
 
 
