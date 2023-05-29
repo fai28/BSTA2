@@ -243,8 +243,8 @@ public class BST<T extends Comparable> implements BSTInterface<T> {
      * Postcondition: Returns the level of the node containing the given value. If the value does not exist, returns -1.
      */
     public int level(T value) {
-    	int initialLevel = -1;
-        return recursiveLevel(value, root, 0);
+        int initialLevel = -1;
+        return recursiveLevel(value, root, 0, initialLevel);
     }
 
 
