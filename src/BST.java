@@ -1,3 +1,8 @@
+/**
+ * Monmoy Maahdie (30149094)
+ * Fairooz Shafin (30149774)
+ * Assignment 3 CPSC 331 Spring 2023
+ */
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
