@@ -72,7 +72,7 @@ public class TreeRandomizer {
             
             bst.printBST(BST.INORDER);
         }
-        fileWriter.close(); // Don't forget to close the FileWriter at the end
+        fileWriter.close(); 
     } catch (IOException e) {
         System.out.println("An error occurred while writing to the file.");
         e.printStackTrace();
