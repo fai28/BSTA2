@@ -338,7 +338,7 @@ public class BST<T extends Comparable> implements BSTInterface<T> {
      * Precondition: None
      * Postcondition: Returns true if the tree has duplicate values
      * Assumes that the values are drawn from a fixed set such as 0 to m-1 for some value m
-     * Capitalizes on the "visited" field of the Node class
+     * 
      */
     public boolean hasDoubles() {
         HashSet<T> visited = new HashSet<>();
