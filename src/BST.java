@@ -1,3 +1,4 @@
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -263,9 +264,9 @@ public class BST<T extends Comparable> implements BSTInterface<T> {
 
 
     private void resetVisited(Node<T> root) {
-        if (root == null)
+        if (root == null) {
             return;
-
+        }
         root.setVisited(false);
         resetVisited(root.getLeft());
         resetVisited(root.getRight());
@@ -337,20 +338,21 @@ public class BST<T extends Comparable> implements BSTInterface<T> {
      * Precondition: None
      * Postcondition: Returns true if the tree has duplicate values
      * Assumes that the values are drawn from a fixed set such as 0 to m-1 for some value m
-     * Capitalizes on the "visited" field of the Node class
+     * 
      */
     public boolean hasDoubles() {
-        return recursiveHasDoubles(root);
+        HashSet<T> visited = new HashSet<>();
+        return recursiveHasDoubles(root, visited);
     }
 
-    private boolean recursiveHasDoubles(Node<T> root) {
+    private boolean recursiveHasDoubles(Node<T> root, HashSet<T> visited) {
         if (root == null) return false;
-        if (root.isVisited()) return true;
-        root.setVisited(true);
-        boolean leftHasDoubles = recursiveHasDoubles(root.getLeft());
-        boolean rightHasDoubles = recursiveHasDoubles(root.getRight());
-        return leftHasDoubles || rightHasDoubles;
+        if (visited.contains(root.getValue())) return true;
+        visited.add(root.getValue());
+        return recursiveHasDoubles(root.getLeft(), visited) || recursiveHasDoubles(root.getRight(), visited);
     }
+
+    
    
 
 

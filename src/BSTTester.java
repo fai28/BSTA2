@@ -17,11 +17,16 @@ public class BSTTester
         Random rnd = new Random();
         for (int i = 0; i < 10; i++)
         {
-            t.add(rnd.nextInt(100));
+            t.add(rnd.nextInt(5));
         }
         t.printBST(BST.INORDER);
         t.printBST(BST.PREORDER);
         t.printBST(BST.POSTORDER);
+        
+        int doublesCounter= 0;
+        if (t.hasDoubles()) {
+        	doublesCounter++;
+        }
 
         if (t.contains(12)) System.out.println("12 is in the tree");
         else System.out.println("12 is in not the tree");
@@ -60,6 +65,7 @@ public class BSTTester
         System.out.println("Get items postorder: ");
         for (int i = 0; i < size; i++) System.out.print(t.getNext(BST.POSTORDER) + " ");
         System.out.println();
+        System.out.println("Number of trees with doubles: " + doublesCounter);
     }
 
 
