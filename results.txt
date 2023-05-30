@@ -1,0 +1,196 @@
+/**
+ * Monmoy Maahdie (30149094)
+ * Fairooz Shafin (30149774)
+ * Assignment 3 CPSC 331 Spring 2023
+ */
+
+EXPERIMENT 1
+Tree Size: 500 Nodes
+Average height: 19.58
+Number of complete trees: 0
+Number of perfect trees: 0
+Number of trees with duplicates: 8
+
+Tree Size: 1000 Nodes
+Average height: 21.7
+Number of complete trees: 0
+Number of perfect trees: 0
+Number of trees with duplicates: 28
+
+Tree Size: 5000 Nodes
+Average height: 28.58
+Number of complete trees: 0
+Number of perfect trees: 0
+Number of trees with duplicates: 67
+
+EXPERIMENT 2
+Tree Size: 500 Nodes
+Average height: 19.46
+Number of complete trees: 0
+Number of perfect trees: 0
+Number of trees with duplicates: 8
+
+Tree Size: 1000 Nodes
+Average height: 22.29
+Number of complete trees: 0
+Number of perfect trees: 0
+Number of trees with duplicates: 21
+
+Tree Size: 5000 Nodes
+Average height: 28.53
+Number of complete trees: 0
+Number of perfect trees: 0
+Number of trees with duplicates: 71
+
+EXPERIMENT 3
+Tree Size: 500 Nodes
+Average height: 19.29
+Number of complete trees: 0
+Number of perfect trees: 0
+Number of trees with duplicates: 11
+
+Tree Size: 1000 Nodes
+Average height: 21.83
+Number of complete trees: 0
+Number of perfect trees: 0
+Number of trees with duplicates: 26
+
+Tree Size: 5000 Nodes
+Average height: 28.56
+Number of complete trees: 0
+Number of perfect trees: 0
+Number of trees with duplicates: 75
+
+EXPERIMENT 4
+Tree Size: 500 Nodes
+Average height: 19.02
+Number of complete trees: 0
+Number of perfect trees: 0
+Number of trees with duplicates: 16
+
+Tree Size: 1000 Nodes
+Average height: 22.2
+Number of complete trees: 0
+Number of perfect trees: 0
+Number of trees with duplicates: 22
+
+Tree Size: 5000 Nodes
+Average height: 28.25
+Number of complete trees: 0
+Number of perfect trees: 0
+Number of trees with duplicates: 74
+
+EXPERIMENT 5
+Tree Size: 500 Nodes
+Average height: 19.46
+Number of complete trees: 0
+Number of perfect trees: 0
+Number of trees with duplicates: 13
+
+Tree Size: 1000 Nodes
+Average height: 22.32
+Number of complete trees: 0
+Number of perfect trees: 0
+Number of trees with duplicates: 26
+
+Tree Size: 5000 Nodes
+Average height: 28.38
+Number of complete trees: 0
+Number of perfect trees: 0
+Number of trees with duplicates: 73
+
+EXPERIMENT 6
+Tree Size: 500 Nodes
+Average height: 19.29
+Number of complete trees: 0
+Number of perfect trees: 0
+Number of trees with duplicates: 10
+
+Tree Size: 1000 Nodes
+Average height: 21.74
+Number of complete trees: 0
+Number of perfect trees: 0
+Number of trees with duplicates: 21
+
+Tree Size: 5000 Nodes
+Average height: 28.6
+Number of complete trees: 0
+Number of perfect trees: 0
+Number of trees with duplicates: 72
+
+EXPERIMENT 7
+Tree Size: 500 Nodes
+Average height: 19.06
+Number of complete trees: 0
+Number of perfect trees: 0
+Number of trees with duplicates: 10
+
+Tree Size: 1000 Nodes
+Average height: 22.25
+Number of complete trees: 0
+Number of perfect trees: 0
+Number of trees with duplicates: 20
+
+Tree Size: 5000 Nodes
+Average height: 28.89
+Number of complete trees: 0
+Number of perfect trees: 0
+Number of trees with duplicates: 76
+
+EXPERIMENT 8
+Tree Size: 500 Nodes
+Average height: 19.38
+Number of complete trees: 0
+Number of perfect trees: 0
+Number of trees with duplicates: 15
+
+Tree Size: 1000 Nodes
+Average height: 21.89
+Number of complete trees: 0
+Number of perfect trees: 0
+Number of trees with duplicates: 24
+
+Tree Size: 5000 Nodes
+Average height: 28.12
+Number of complete trees: 0
+Number of perfect trees: 0
+Number of trees with duplicates: 72
+
+EXPERIMENT 9
+Tree Size: 500 Nodes
+Average height: 19.35
+Number of complete trees: 0
+Number of perfect trees: 0
+Number of trees with duplicates: 13
+
+Tree Size: 1000 Nodes
+Average height: 22.47
+Number of complete trees: 0
+Number of perfect trees: 0
+Number of trees with duplicates: 33
+
+Tree Size: 5000 Nodes
+Average height: 28.51
+Number of complete trees: 0
+Number of perfect trees: 0
+Number of trees with duplicates: 73
+
+EXPERIMENT 10
+Tree Size: 500 Nodes
+Average height: 19.51
+Number of complete trees: 0
+Number of perfect trees: 0
+Number of trees with duplicates: 12
+
+Tree Size: 1000 Nodes
+Average height: 21.97
+Number of complete trees: 0
+Number of perfect trees: 0
+Number of trees with duplicates: 26
+
+Tree Size: 5000 Nodes
+Average height: 28.46
+Number of complete trees: 0
+Number of perfect trees: 0
+Number of trees with duplicates: 69
+
